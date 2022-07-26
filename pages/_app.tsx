@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
       <title>Ailurus</title>
     </Head>
     <SessionProvider session={session}>
-      <Navbar isHome={pathname === '/'? true : false} isForgetPassword={pathname === '/auth/forgot_password' ? true : false } isResetPassword={pathname === '/auth/reset_password' ? true : false} setMobileNavClicked={setIsMobileNavClicked}>
+      <Navbar isHome={pathname === '/'? true : false} isForgetPassword={pathname === '/auth/forgot_password' ? true : false } isResetPassword={pathname === '/auth/reset_password' ? true : false} isFeatures={pathname === '/features' ? true : false} setMobileNavClicked={setIsMobileNavClicked}>
         <Component {...pageProps} />
       </Navbar>
       {/* <Footer isHome={pathname === '/'? true: false} isMobileNavClicked={isMobileNavClicked} /> */}

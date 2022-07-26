@@ -13,11 +13,12 @@ interface NavbarProps {
   isHome: boolean,
   isForgetPassword: boolean,
   isResetPassword: boolean,
+  isFeatures: boolean,
   children: any,
   setMobileNavClicked: (isMobileNavClicked: boolean) => void
 }
 
-const Navbar: FC<NavbarProps> = ({ isHome, isForgetPassword, isResetPassword, children, setMobileNavClicked }) => {
+const Navbar: FC<NavbarProps> = ({ isHome, isForgetPassword, isResetPassword, isFeatures, children, setMobileNavClicked }) => {
   const { pathname } = useRouter()
   const { data: session } = useSession()
   const [isMobileNavClicked, setIsMobileNavClicked] = useState<boolean>(false)
@@ -39,7 +40,7 @@ const Navbar: FC<NavbarProps> = ({ isHome, isForgetPassword, isResetPassword, ch
 
   return (
     <>
-      <div className={`${isHome && 'border-none'} border-b-[0.5px] border-inputBorder fixed z-10 w-screen h-24 px-7 justify-between items-center ${isHome ? 'bg-transparent' : 'bg-main'} ${isMobileNavClicked ? 'hidden' : 'inline-flex'}`}>
+      <div className={`${isHome && 'border-none'} border-b-[0.5px] border-inputBorder ${isFeatures ? 'relative' : 'fixed'} z-10 w-screen h-24 px-7 justify-between items-center ${isHome ? 'bg-transparent' : 'bg-main'} ${isMobileNavClicked ? 'hidden' : 'inline-flex'}`}>
 
         <div id='title' className='font-montserrat font-bold text-white text-2xl '>
           <Link href="/">Ailurus</Link>
