@@ -33,7 +33,7 @@ const CollectionsPage: NextPage = () => {
 
   return (
     <div className='h-screen w-screen pt-36 grid grid-cols-1 md:grid-cols-2 desktop:grid-cols-4 justify-items-center items-start gap-y-10  '>
-      {collections.length > 0 && collections.map(collection => {
+      {collections && collections.length > 0 && collections.map(collection => {
         return (<CollectionCard key={collection.id} title={collection.title} content={collection.content} image_url={collection.image_url} />)
       })}
     </div>

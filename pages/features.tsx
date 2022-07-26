@@ -158,14 +158,18 @@ const FeaturesPage: NextPage = () => {
         })
         const data = await response.data
 
-        if(data) {
+        if(data.success) {
           push('/collections/'+session?.user?.email) 
+        } else {
+          push('/')
         }
+
       }
       
 
+
     } catch(error: any) {
-      throw new Error(error)
+      console.log(error)
     }
     
     

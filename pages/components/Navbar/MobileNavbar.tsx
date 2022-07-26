@@ -66,7 +66,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ isClicked, onRemoveMobileNav}) =>
           </div>
 
           {/* have session*/}
-          <div onClick={() => onClickNav('/collections')} className={`font-montserrat font-bold text-black text-4xl w-full text-center py-2 ${!session && 'hidden'}`}>
+          <div onClick={() => onClickNav(`/collections/${session?.user?.email}`)} className={`font-montserrat font-bold text-black text-4xl w-full text-center py-2 ${!session && 'hidden'}`}>
             Collections
           </div>
 

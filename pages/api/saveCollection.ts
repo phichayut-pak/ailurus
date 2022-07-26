@@ -1,3 +1,4 @@
+import { ObjectId } from 'mongodb'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { connectToDatabase } from '../../lib/db/connectToDatabase'
 
@@ -23,7 +24,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const client: any = await connectToDatabase()
   const db = await client.db('auth')
   const usersCollection = await db.collection('users')
-  const user = await usersCollection.findOne({ email: email })
+  const user = await usersCollection.findOne({ email })
 
   if(!user) {
     client.close()
@@ -33,10 +34,37 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     })
   }
 
-  
-
 
   const collections = user.collections
+
+  
+  if(!collections) {
+    const collections = []
+    if(enabled) {
+      collections.push({
+        title,
+        content,
+        image_url
+      })
+    }
+  
+    if(!enabled) {
+      collections.push({
+        title,
+        image_url
+      })
+    }
+
+    const updatedUser = await usersCollection.updateOne({ email }, { $set: {
+      collections
+    }})
+
+    res.status(200).json({
+      success: true,
+      message: 'Post created!'
+    })
+    
+  }
 
   if(enabled) {
     collections.push({
