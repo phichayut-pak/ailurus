@@ -64,34 +64,34 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       message: 'Post created!'
     })
     
-  }
+  } else {
 
-  if(enabled) {
-    collections.push({
-      title,
-      content,
-      image_url
+    if(enabled) {
+      collections.push({
+        title,
+        content,
+        image_url
+      })
+    }
+
+    if(!enabled) {
+      collections.push({
+        title,
+        image_url
+      })
+    }
+
+    const updatedUser = await usersCollection.updateOne({ email }, { $set: {
+      collections
+    }})
+    
+
+    res.status(200).json({
+      success: true,
+      message: 'Post created!'
     })
+
   }
-
-  if(!enabled) {
-    collections.push({
-      title,
-      image_url
-    })
-  }
-
-  const updatedUser = await usersCollection.updateOne({ email }, { $set: {
-    collections
-  }})
-  
-
-  res.status(200).json({
-    success: true,
-    message: 'Post created!'
-  })
-
-
 
 
 
