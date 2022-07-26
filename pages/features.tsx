@@ -24,6 +24,7 @@ const FeaturesPage: NextPage = () => {
   const [y2, setY2] = useState<any>(null)
   const [k, setK] = useState<number>(0)
   const [enabled, setEnabled] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false)
   const [clientWindowWidth, setClientWindowWidth] = useState<string | number>('')
 
   const handleResize = (): void => {
@@ -130,6 +131,7 @@ const FeaturesPage: NextPage = () => {
 
   const saveHandler = async (e: FormEvent<HTMLFormElement | HTMLButtonElement>) => {
     e.preventDefault()
+    setLoading(true)
 
     const canvas: any = document.querySelector('canvas')
     // let canvas: any
@@ -170,6 +172,7 @@ const FeaturesPage: NextPage = () => {
       console.log(error)
     }
     
+    setLoading(false)
     
 
     
@@ -243,7 +246,7 @@ const FeaturesPage: NextPage = () => {
                 <div className="w-full inline-flex justify-end items-center">
                   <button 
                     onClick={saveHandler}
-                    disabled={(title.trim().length === 0 || content.trim().length === 0) && true} 
+                    disabled={title.trim().length === 0 || content.trim().length === 0 || loading} 
                     type='submit' 
                     className={`py-1.5 bg-main px-3 text-white font-notoThai text-xl border border-main transition duration-150 ease-in hover:bg-white hover:text-main ${(title.trim().length === 0 || content.trim().length === 0) ? 'opacity-50' : 'opacity-100'}`}>
                       บันทึก
@@ -308,7 +311,7 @@ const FeaturesPage: NextPage = () => {
           
           <button 
             onClick={saveHandler}
-            disabled={(title.trim().length === 0 || content.trim().length === 0) && true} 
+            disabled={title.trim().length === 0 || content.trim().length === 0 && loading} 
             type='submit' 
             className={` py-2 bg-main px-5 text-white font-notoThai text-xl border border-main transition duration-150 ease-in hover:bg-white hover:text-main ${(title.trim().length === 0 || content.trim().length === 0) ? 'opacity-50' : 'opacity-100'}`}>
               บันทึก
