@@ -5,6 +5,7 @@ import { GetServerSidePropsContext } from 'next'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import CollectionCard from '../components/CollectionsCard/CollectionCard'
+import SkeletonCard from '../components/CollectionsCard/SkeletonCard'
 
 
 
@@ -31,8 +32,28 @@ const CollectionsPage: NextPage = () => {
   }, [query.email])
 
 
+
   return (
-    <div className='h-screen w-screen pt-36 grid grid-cols-1 md:grid-cols-2 desktop:grid-cols-4 justify-items-center items-start gap-y-10  '>
+    <div className={`h-screen w-screen pt-36  ${!collections ? 'flex justify-center items-center' : 'grid grid-cols-1 md:grid-cols-2 desktop:grid-cols-4 justify-items-center items-start gap-y-10' }`}>
+      {collections && collections.length === 0 && (
+        <>
+          <SkeletonCard></SkeletonCard>
+          <SkeletonCard></SkeletonCard>
+          <SkeletonCard></SkeletonCard>
+          <SkeletonCard></SkeletonCard>
+          <SkeletonCard></SkeletonCard>
+          <SkeletonCard></SkeletonCard>
+          <SkeletonCard></SkeletonCard>
+          <SkeletonCard></SkeletonCard>
+        </>
+      )}
+
+      {!collections && (
+        <div className='font-notoThai text-main text-2xl'>คุณยังไม่ได้โพสต์</div>
+      )}
+
+
+
       {collections && collections.length > 0 && collections.map(collection => {
         return (<CollectionCard key={collection.id} title={collection.title} content={collection.content} image_url={collection.image_url} />)
       })}

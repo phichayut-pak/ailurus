@@ -160,9 +160,7 @@ const FeaturesPage: NextPage = () => {
 
         if(data.success) {
           push('/collections/'+session?.user?.email) 
-        } else {
-          push('/')
-        }
+        } 
 
       }
       
