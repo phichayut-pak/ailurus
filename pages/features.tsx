@@ -182,7 +182,7 @@ const FeaturesPage: NextPage = () => {
 
 
   return (
-    <div className='relative h-screen w-screen bg-main desktop:bg-white pt-96 desktop:pt-[6.0rem] z-0 flex justify-center items-center '>
+    <div className='relative h-screen w-screen bg-main desktop:bg-white pt-96 desktop:pt-0 z-0 flex justify-center items-center '>
       {/* Desktop */}
       <div className='h-full w-full hidden desktop:grid grid-cols-2 justify-items-center z-0'>
 
