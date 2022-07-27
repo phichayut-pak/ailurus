@@ -46,8 +46,8 @@ const HomePageTwo: FC = () => {
 
       </div>
 
-      <div className="absolute inset-0 inline-flex w-full h-full z-0 desktop:hidden">
-        <Image src={manStandingInFrontOfWindow} className='opacity-50' alt='little girl hugging mother'></Image>
+      <div className="absolute inset-0 inline-flex justify-center items-center w-full h-full pt-10 z-0 desktop:hidden">
+        <Image src={manStandingInFrontOfWindow} width={1000} height={1200} className='opacity-50' alt='little girl hugging mother'></Image>
       </div>
 
     </section>
