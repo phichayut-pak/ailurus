@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from 'react'
 import Image from 'next/image'
 import manStandingInFrontOfWindow from '../../../public/assets/man-standing-in-front-of-window.png'
-
+import mobileManStandingInFrontOfWindow from '../../../public/assets/mobile-man-standing-in-front-of-window.png'
 
 const HomePageTwo: FC = () => {
   const [clientWindowWidth, setClientWindowWidth] = useState<string | number>('')
@@ -44,7 +44,7 @@ const HomePageTwo: FC = () => {
 
       <div className='bg-main w-full h-full inline-flex justify-center items-center relative'>
 
-        <Image src={manStandingInFrontOfWindow} alt='little girl hugging mother'></Image>
+        <Image src={clientWindowWidth < 1200 ? mobileManStandingInFrontOfWindow : manStandingInFrontOfWindow} alt='little girl hugging mother'></Image>
 
       </div>
 

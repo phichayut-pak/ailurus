@@ -18,7 +18,7 @@ const HomePageOne: FC = () => {
   })
 
   return (
-    <section className='snap-start relative w-screen h-screen flex flex-col justify-center items-center desktop:grid desktop:grid-cols-2 justify-items-start bg-main'>
+    <section className='snap-start relative h-screen w-screen flex flex-col justify-center items-center desktop:grid desktop:grid-cols-2 justify-items-start bg-main'>
       <div className='absolute z-30 top-[22rem] left-8 md:left-16 desktop:left-36 translate -transform-x-1/2 -transform-y-1/2 flex flex-col justify-center items-center space-y-20'>
         
         <div className={`w-3 h-3 border border-white rounded-full  bg-white`} />
@@ -27,22 +27,22 @@ const HomePageOne: FC = () => {
 
       </div>  
 
-      <div className='flex flex-col justify-center items-center desktop:items-start pl-0 desktop:pl-60 font-notoThai text-white text-7xl desktop:text-8xl pt-36 desktop:pt-0 w-full h-full space-y-3 desktop:space-y-5 '>
+      <div className='flex flex-col justify-center items-center desktop:items-start pl-0 desktop:pl-60 font-notoThai text-white text-6xl desktop:text-8xl pt-36 desktop:pt-0 w-full h-full space-y-3 desktop:space-y-5 '>
 
         <div className='text-left'>
-          {clientWindowWidth < 1100 ? 'อย่าสู้ตัว' : 'อย่าสู้'}
+          {clientWindowWidth < 1200 ? 'อย่าสู้ตัว' : 'อย่าสู้'}
         </div>
 
         <div className="">
-          {clientWindowWidth < 1100 ? 'คนเดียว' : 'ตัวคนเดียว'}
+          {clientWindowWidth < 1200 ? 'คนเดียว' : 'ตัวคนเดียว'}
         </div>
 
       </div>
 
       {/* <div className="flex desktop:hidden justify-center items-center"></div> */}
 
-      <div className='bg-main w-full h-full flex justify-end items-end'>
-          <Image src={clientWindowWidth < 1100 ? mobileLittleGirlHuggingMother : littleGirlHuggingMother} alt='little girl hugging mother'></Image>
+      <div className='bg-main w-full h-full inline-flex justify-center items-end desktop:flex desktop:justify-end desktop:items-end'>
+          <Image src={clientWindowWidth < 1200 ? mobileLittleGirlHuggingMother : littleGirlHuggingMother} alt='little girl hugging mother'></Image>
       </div>
 
     </section>
