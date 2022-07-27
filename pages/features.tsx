@@ -322,7 +322,7 @@ const FeaturesPage: NextPage = () => {
         
 
         { isMobile && (
-          <div className='py-36 bg-main relative flex justify-center items-center border-t-[0.5px] border-b-[0.5px] border-inputBorder'>
+          <div className='py-36 bg-main relative flex justify-center items-center '>
             
               <canvas id='mobile-content-image-processing' width={400} height={400} className='z-50'></canvas>
               <button onClick={download} className='absolute bottom-5 left-5 bg-white px-3 py-2 text-main font-notoThai text-xl'>ดาวน์โหลด</button>

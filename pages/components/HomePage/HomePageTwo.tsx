@@ -20,7 +20,7 @@ const HomePageTwo: FC = () => {
   return (
     <section className='snap-start relative w-screen h-screen flex flex-col justify-center items-center desktop:grid desktop:grid-cols-2 justify-items-start bg-main'>
       
-      <div className='absolute z-30 top-[22rem] left-8 md:left-16 desktop:left-36 translate -transform-x-1/2 -transform-y-1/2 flex flex-col justify-center items-center space-y-20'>
+      <div className='absolute z-30 left-8 md:left-16 desktop:left-36 translate -transform-x-1/2 -transform-y-1/2 flex flex-col justify-center items-center space-y-20'>
         
         <div className={`w-3 h-3 border border-white rounded-full  bg-main`} />
         <div className={`w-3 h-3 border border-white rounded-full bg-white `} />

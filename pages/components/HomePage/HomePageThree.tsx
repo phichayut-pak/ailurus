@@ -9,7 +9,7 @@ const HomePageThree = () => {
 
   return (
     <section className='snap-start h-screen w-screen bg-main relative flex justify-center items-center'>
-      <div className='absolute z-30 top-[22rem] left-8 md:left-16 desktop:left-36 translate -transform-x-1/2 -transform-y-1/2 flex flex-col justify-center items-center space-y-20'>
+      <div className='absolute z-30 left-8 md:left-16 desktop:left-36 translate -transform-x-1/2 -transform-y-1/2 flex flex-col justify-center items-center space-y-20'>
         
         <div className={`w-3 h-3 border border-white rounded-full  bg-main`} />
         <div className={`w-3 h-3 border border-white rounded-full bg-main `} />
