@@ -43,7 +43,7 @@ const HomePageOne: FC = () => {
           <Image src={littleGirlHuggingMother} alt='little girl hugging mother'></Image>
       </div>
 
-      <div className="absolute w-full h-full inline-flex z-0">
+      <div className="absolute w-full h-full inline-flex z-0 desktop:hidden">
         <Image src={mobileLittleGirlHuggingMother} className='opacity-50' alt='little girl hugging mother'></Image>
       </div>
 

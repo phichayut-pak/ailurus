@@ -40,8 +40,6 @@ const HomePageTwo: FC = () => {
 
       </div>
 
-      {/* <div className="flex desktop:hidden justify-center items-center"></div> */}
-
       <div className='bg-main w-full h-full justify-end items-end hidden desktop:flex'>
 
         <Image src={manStandingInFrontOfWindow} alt='little girl hugging mother'></Image>
