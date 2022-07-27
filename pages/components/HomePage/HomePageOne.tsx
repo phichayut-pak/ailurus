@@ -30,11 +30,11 @@ const HomePageOne: FC = () => {
       <div className='flex flex-col justify-center items-center desktop:items-start pl-0 desktop:pl-60 font-notoThai text-white text-7xl desktop:text-8xl pt-36 desktop:pt-0 w-full h-full space-y-3 desktop:space-y-5 '>
 
         <div className='text-left'>
-          {clientWindowWidth < 1024 ? 'อย่าสู้ตัว' : 'อย่าสู้'}
+          {clientWindowWidth < 1100 ? 'อย่าสู้ตัว' : 'อย่าสู้'}
         </div>
 
         <div className="">
-          {clientWindowWidth < 1024 ? 'คนเดียว' : 'ตัวคนเดียว'}
+          {clientWindowWidth < 1100 ? 'คนเดียว' : 'ตัวคนเดียว'}
         </div>
 
       </div>
@@ -42,7 +42,7 @@ const HomePageOne: FC = () => {
       {/* <div className="flex desktop:hidden justify-center items-center"></div> */}
 
       <div className='bg-main w-full h-full flex justify-end items-end'>
-          <Image src={clientWindowWidth < 1024 ? mobileLittleGirlHuggingMother : littleGirlHuggingMother} alt='little girl hugging mother'></Image>
+          <Image src={clientWindowWidth < 1100 ? mobileLittleGirlHuggingMother : littleGirlHuggingMother} alt='little girl hugging mother'></Image>
       </div>
 
     </section>

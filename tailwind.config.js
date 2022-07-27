@@ -15,7 +15,7 @@ module.exports = {
         notoThai: ['Noto Sans Thai', 'sans-serif']
       },
       screens: {
-        'desktop': '1024px',
+        'desktop': '1100px',
         'mobile': '744px'
       }
 
