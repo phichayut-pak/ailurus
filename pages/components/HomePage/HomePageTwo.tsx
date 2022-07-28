@@ -28,7 +28,7 @@ const HomePageTwo: FC = () => {
 
       </div> 
 
-      <div className='z-10 mb-3 flex flex-col justify-center items-center desktop:items-start pl-0 desktop:pl-60 font-notoThai text-white text-6xl desktop:text-8xl desktop:pt-0 w-full h-full space-y-3 desktop:space-y-5 '>
+      <div className='mb-3 flex flex-col justify-center items-center desktop:items-start pl-0 desktop:pl-60 font-notoThai text-white text-6xl desktop:text-8xl pt-36 desktop:pt-0 w-full h-full space-y-3 desktop:space-y-5 '>
 
         <div className='text-center'>
           อย่าละเลย
@@ -40,14 +40,9 @@ const HomePageTwo: FC = () => {
 
       </div>
 
-      <div className='bg-main w-full h-full justify-end items-end hidden desktop:flex'>
+      <div className='bg-main w-full h-full inline-flex justify-center items-center relative'>
 
-        <Image src={manStandingInFrontOfWindow} alt='little girl hugging mother'></Image>
-
-      </div>
-
-      <div className="absolute inset-0 inline-flex justify-center items-center w-full h-full pt-10 z-0 desktop:hidden">
-        <Image src={manStandingInFrontOfWindow} width={1000} height={1200} className='opacity-50' alt='little girl hugging mother'></Image>
+        <Image src={clientWindowWidth < 1200 ? mobileManStandingInFrontOfWindow : manStandingInFrontOfWindow} alt='little girl hugging mother'></Image>
       </div>
 
     </section>
