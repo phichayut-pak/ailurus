@@ -1,5 +1,26 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 const nodemailer = require('nodemailer')
+import Cors from 'cors'
+
+const cors = Cors({
+  methods: ['POST'],
+})
+
+function runMiddleware(
+  req: NextApiRequest,
+  res: NextApiResponse,
+  fn: Function 
+) {
+  return new Promise((resolve, reject) => {
+    fn(req, res, (result: any) => {
+      if (result instanceof Error) {
+        return reject(result)
+      }
+
+      return resolve(result)
+    })
+  })
+}
 
 type ContactUsData = {
   success: boolean,
@@ -7,7 +28,7 @@ type ContactUsData = {
 }
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<ContactUsData>) => {
-
+  runMiddleware(req, res, cors)
   if(req.method !== 'POST') {
     return
   }

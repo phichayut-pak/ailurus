@@ -28,7 +28,7 @@ const ForgotPasswordPage: NextPage = () => {
       }
   
     } else {
-      const response = await axios.patch('/api/auth/forgot_password', {
+      const response = await axios.post('/api/auth/forgot_password', {
         email
       })
 

@@ -1,13 +1,35 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { connectToDatabase } from '../../../lib/db/connectToDatabase'
 import absoluteUrl from 'next-absolute-url'
+import Cors from 'cors'
+
+const cors = Cors({
+  methods: ['POST'],
+})
+
+function runMiddleware(
+  req: NextApiRequest,
+  res: NextApiResponse,
+  fn: Function 
+) {
+  return new Promise((resolve, reject) => {
+    fn(req, res, (result: any) => {
+      if (result instanceof Error) {
+        return reject(result)
+      }
+
+      return resolve(result)
+    })
+  })
+}
 
 
 const nodemailer = require('nodemailer')
 const jwt = require('jsonwebtoken')
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  if(req.method !== 'PATCH') {
+  await runMiddleware(req, res, cors)
+  if(req.method !== 'POST') {
     return
   }
 

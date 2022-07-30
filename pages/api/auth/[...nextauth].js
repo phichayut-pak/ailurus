@@ -6,6 +6,7 @@ import { verifyPassword } from "../../../lib/auth/auth";
 import { MongoDBAdapter } from '@next-auth/mongodb-adapter'
 import clientPromise from "../../../lib/auth/mongodb";
 
+
 export default NextAuth({
   providers: [
     GoogleProvider({

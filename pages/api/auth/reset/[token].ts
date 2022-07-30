@@ -2,10 +2,33 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { connectToDatabase } from '../../../../lib/db/connectToDatabase'
 import { hashPassword } from '../../../../lib/auth/auth'
 import { ObjectId } from 'mongodb'
+import Cors from 'cors'
 
 const jwt = require('jsonwebtoken')
 
+const cors = Cors({
+  methods: ['POST'],
+})
+
+function runMiddleware(
+  req: NextApiRequest,
+  res: NextApiResponse,
+  fn: Function
+) {
+  return new Promise((resolve, reject) => {
+    fn(req, res, (result: any) => {
+      if (result instanceof Error) {
+        return reject(result)
+      }
+
+      return resolve(result)
+    })
+  })
+}
+
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  await runMiddleware(req, res, cors)
+
   if(req.method !== 'POST') {
     return
   }
